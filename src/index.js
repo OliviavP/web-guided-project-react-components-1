@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import Playground from './components/Playground'
+
 /*
 💥💥💥 Rules when DECLARING a React component 💥💥💥
   - Name is capitalized
@@ -22,14 +24,57 @@ import { render } from 'react-dom'
 */
 
 function App(props) {
+  //JSX -> JavaScript Markup Language
+  //HTML
+  const { track, instructor, numStudents, favStudent, foo } = props
+
   return (
     <div className='container'>
-      <h1>Welcome to React, {props.track} rockstars!!</h1>
+      {/* 
+      const divElem = document.createElement('div)};
+      divElem.classList.add('container);
+  */}
+      <h1>
+        Welcome to React, {props.track} rockstars!! {instructor} is the BEST!
+      </h1>
+      <p>Current number of Students: {numStudents}</p>
+      <h2>Favorite student is......{favStudent}!</h2>
+      <Playground />
     </div>
   )
 }
 
 render(
-  <App track='Web' />,
+  <App
+    track='Web'
+    instructor='Name'
+    numStudents='31'
+    favStudent='Olivia'
+    foo='bar'
+  />,
   document.querySelector('#root')
 )
+
+/**
+ * *props are data passed from a parent to a child
+ *
+ * const props = {
+ * track : 'Web',
+ * intructor: 'Instructor name',
+ * numStudents: 'number'
+ * favStudent : 'name'
+ * foo: bar
+ * }
+ *
+ *  App(props)
+ *
+ * render(
+ * <app track='web' instructor='name'
+ * numStudents='31' faveStudent='Olivia' foo='bar' />,
+ * document.querySelector('#root'))
+ *
+ * child component: App is the child component, parent is the render
+ * Component name has to be capitalized
+ * Component has to return something
+ * explicitly close all tags
+ */
