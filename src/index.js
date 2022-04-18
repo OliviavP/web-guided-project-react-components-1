@@ -3,6 +3,12 @@ import { render } from 'react-dom'
 
 import Playground from './components/Playground'
 
+/**
+ * two ways to export?!
+ * 1.) Default Export
+ * 2.) Named Export
+ */
+
 /*
 💥💥💥 Rules when DECLARING a React component 💥💥💥
   - Name is capitalized
@@ -27,6 +33,7 @@ function App(props) {
   //JSX -> JavaScript Markup Language
   //HTML
   const { track, instructor, numStudents, favStudent, foo } = props
+  const fun = true
 
   return (
     <div className='container'>
@@ -39,7 +46,7 @@ function App(props) {
       </h1>
       <p>Current number of Students: {numStudents}</p>
       <h2>Favorite student is......{favStudent}!</h2>
-      <Playground />
+      <Playground happy={fun} />
     </div>
   )
 }
